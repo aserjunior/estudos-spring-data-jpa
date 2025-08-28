@@ -36,10 +36,10 @@ public class DatabaseConfiguration {
     @Bean
     public DataSource hikariDataSource() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(url);
         config.setUsername(user);
         config.setPassword(password);
         config.setDriverClassName(driver);
+        config.setJdbcUrl(url);
 
         config.setMaximumPoolSize(10); // Numero maximo de conexões liberadas
         config.setMinimumIdle(1); // Tamanho inicial do pool
