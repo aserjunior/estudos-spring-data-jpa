@@ -3,8 +3,9 @@ package estudos.spring.libraryapi.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Table(name = "autor")
 @Getter
 @Setter
+@ToString
 public class Autor {
 
     @Id
@@ -23,11 +25,12 @@ public class Autor {
     private String nome;
 
     @Column(name = "data_nascimento", nullable = false)
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
 
     @Column(name = "nacionalidade", length = 50, nullable = false)
     private String nacionalidade;
 
-    @OneToMany(mappedBy = "autor")
+//    @OneToMany(mappedBy = "autor")
+    @Transient
     private List<Livro> livros;
 }

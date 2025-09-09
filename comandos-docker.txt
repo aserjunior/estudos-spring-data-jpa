@@ -9,10 +9,10 @@ docker create network library-network
 adicionar --network -nome da network- depois das portas
 
 # Rodar container postgres na versão 16.3
-docker run --name librarydb -e POSTGRES_USERNAME=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=library -p 5432:5432 postgres:16.3
+docker run --name librarydb -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=library --network library-network -p 5432:5432 postgres:16.3
 
 # Rodar Pgadmin4
-docker run --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -p 15432:80 dpage/pgadmin4
+docker run --name pgadmin4 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin --network library-network -p 15432:80 dpage/pgadmin4
 
 # Tabelas banco
 
