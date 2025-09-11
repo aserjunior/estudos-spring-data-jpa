@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -24,7 +25,7 @@ public class Livro {
     private String titulo;
 
     @Column(name = "data_publicacao", nullable = false)
-    private LocalDateTime dataPublicacao;
+    private LocalDate dataPublicacao;
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "genero", length = 30, nullable = false)
